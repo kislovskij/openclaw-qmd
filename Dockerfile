@@ -7,7 +7,7 @@ ENV PATH="${BUN_INSTALL}/bin:${PATH}"
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-      ca-certificates curl unzip && \
+      python3 ca-certificates curl unzip && \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://bun.sh/install | bash && \
@@ -18,3 +18,5 @@ RUN curl -fsSL https://bun.sh/install | bash && \
 RUN npm install -g @tobilu/qmd
 
 USER node
+
+ENV NPM_CONFIG_CACHE=/home/node/.openclaw/.npm
